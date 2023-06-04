@@ -30,8 +30,6 @@ class HTTPHandler(BaseHTTPRequestHandler):
         
     def do_POST(self):
         data = self.rfile.read(int(self.headers['Content-Length']))
-        # data_parse = urllib.parse.unquote_plus(data.decode())
-        # data_dict = {key: value for key, value in [el.split('=') for el in data_parse.split('&')]}
         self.send(data)
         self.send_response(302)
         self.send_header('Location', '/')
